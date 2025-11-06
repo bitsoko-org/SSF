@@ -93,6 +93,31 @@ const Calendar = ({ fightEvents }: { fightEvents: FightEvent[] }) => {
     );
 };
 
+const VideoSection = () => {
+    const playlistId = "PLn4f5Os-hSEZr31gxxhwJxI7TgqbFH7dW";
+    const embedUrl = `https://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
+
+    return (
+        <div className="py-16 md:py-24 bg-black">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-yellow-400 mb-12">
+                    Latest Highlights
+                </h2>
+                <div className="aspect-video w-full border-2 border-gray-800 rounded-lg overflow-hidden shadow-lg shadow-yellow-400/10">
+                    <iframe
+                        className="w-full h-full"
+                        src={embedUrl}
+                        title="SafariFame Highlights"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const JoinForm = ({ addRequest }: { addRequest: (name: string, nickname: string, phone: string) => void; }) => {
     const [name, setName] = useState('');
     const [nickname, setNickname] = useState('');
@@ -181,6 +206,7 @@ export default function HomePage({ addRequest }: HomePageProps) {
                     )}
                 </div>
             </div>
+            <VideoSection />
             <JoinForm addRequest={addRequest} />
         </div>
     );

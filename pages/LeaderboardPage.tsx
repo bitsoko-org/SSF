@@ -18,6 +18,7 @@ const BoxerListItem: React.FC<BoxerListItemProps> = ({ boxer, rank }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const rankColor = rank === 1 ? 'bg-yellow-400 text-black' : rank === 2 ? 'bg-gray-400 text-black' : rank === 3 ? 'bg-yellow-600 text-white' : 'bg-gray-700 text-white';
+    const rankBorderColor = rank === 1 ? 'border-yellow-400' : rank === 2 ? 'border-gray-400' : rank === 3 ? 'border-yellow-600' : 'border-gray-700';
 
     return (
         <div className="border-b-2 border-gray-800 last:border-b-0">
@@ -31,7 +32,7 @@ const BoxerListItem: React.FC<BoxerListItemProps> = ({ boxer, rank }) => {
                     <div className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-bold text-xl ${rankColor}`}>
                         {rank}
                     </div>
-                    <img className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover" src={boxer.avatarUrl} alt={boxer.name} />
+                    <img className={`w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 ${rankBorderColor}`} src={boxer.avatarUrl} alt={boxer.name} />
                     <div className="flex-grow">
                         <p className="text-lg md:text-xl font-bold text-white">{boxer.name}</p>
                         <p className="text-sm md:text-base text-gray-400">"{boxer.nickname}"</p>
